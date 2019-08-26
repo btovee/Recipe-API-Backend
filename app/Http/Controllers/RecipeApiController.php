@@ -9,13 +9,31 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
+/**
+ * Class RecipeApiController
+ * @package App\Http\Controllers
+ */
 class RecipeApiController extends Controller
 {
 
+    /**
+     * @var RecipeList
+     */
     private $mRecipeList;
+    /**
+     * @var Csv
+     */
     private $mCsv;
+    /**
+     *
+     */
     private const CSV_FILE_DIR = __DIR__ . '/../../../resources/apiData/recipe-data.csv';
 
+    /**
+     * RecipeApiController constructor.
+     * @param Csv $mCsv
+     * @param RecipeList $recipeList
+     */
     public function __construct(Csv $mCsv, RecipeList $recipeList)
     {
         $this->mRecipeList = $recipeList;
@@ -25,6 +43,10 @@ class RecipeApiController extends Controller
         $this->mRecipeList->createRecipeListFromArray($recipeApiData);
     }
 
+    /**
+     * @param $recipeId
+     * @return array
+     */
     public function getRecipe($recipeId)
     {
         $recipe = $this->mRecipeList->getRecipeById($recipeId);
@@ -37,6 +59,12 @@ class RecipeApiController extends Controller
         }
     }
 
+    /**
+     * @param $cuisine
+     * @param Request $request
+     * @param Paginator $paginator
+     * @return array
+     */
     public function getRecipesByCuisine($cuisine, Request $request, Paginator $paginator)
     {
 
@@ -45,6 +73,10 @@ class RecipeApiController extends Controller
         return $paginator->paginateList($recipeList)->addLinks()->getPage($pageNumber);
     }
 
+    /**
+     * @param Request $request
+     * @return array|\Illuminate\Http\JsonResponse
+     */
     public function updateRecipeFields(Request $request) {
 
         $validator = Validator::make($request->all(), [
