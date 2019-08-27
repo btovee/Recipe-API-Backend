@@ -56,4 +56,4 @@ You can run your PHPUnit tests by running the phpunit command:
 ./vendor/bin/phpunit
 </code>
 
-Given more time, I would add tests the classes Csv and RecipeApiController.
+Given more time, I would add tests for the RecipeApiController.
