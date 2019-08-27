@@ -6,15 +6,18 @@
 
  - Use Case 1: As an API client I want to see a recipe's details
     - Example:
-        - Make a GET request to "/api/recipe/get-by-id/1"
+        - Make a GET request to `/api/recipe/get-by-id/1`
         - Response will be a JSON object with all the recipe data associated with recipe ID 1
  - Use Case 2: As an API client I want to see a paginated list of recipes by cuisine
     - Example: 
-        - Make a GET request to "/api/recipes/get-by-cuisine/british"
-        - Response will be a JSON object with all the recipes of cuisine type british
+        - Make a GET request to `/api/recipes/get-by-cuisine/british`
+        - Response will be a JSON object with all the recipes of cuisine type british as well as current page and total number of pages
+        - Pagination is achieved by adding the GET param 'page'
+            - For example `/api/recipes/get-by-cuisine/british?pages=1` will give you the first page 
+            - The first page is returned by default 
  - Use Case 3: As an API client I want to update one or more recipe's fields
     - Example: 
-        - Make a PATCH request to "/api/recipe/update" with the fields you wish to update in the body.
+        - Make a PATCH request to `/api/recipe/update` with the fields you wish to update in the body.
         - The data source with be updated (CSV file) and a success JSON response will be sent.
         
 
@@ -52,3 +55,5 @@ You can run your PHPUnit tests by running the phpunit command:
 <code>
 ./vendor/bin/phpunit
 </code>
+
+Given more time, I would add tests the classes Csv and RecipeApiController.
