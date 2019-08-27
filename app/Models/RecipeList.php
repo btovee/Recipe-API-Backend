@@ -176,32 +176,7 @@ class RecipeList
     {
         foreach ($recipeData as $recipeDatum) {
             $oRecipe = new Recipe();
-            $oRecipe->setId($recipeDatum['id']);
-            $oRecipe->setCreatedAt($recipeDatum['created_at']);
-            $oRecipe->setUpdatedAt($recipeDatum['updated_at']);
-            $oRecipe->setBoxType($recipeDatum['box_type']);
-            $oRecipe->setTitle($recipeDatum['title']);
-            $oRecipe->setSlug($recipeDatum['slug']);
-            $oRecipe->setShortTitle($recipeDatum['short_title']);
-            $oRecipe->setMarketingDescription($recipeDatum['marketing_description']);
-            $oRecipe->setCaloriesKcal($recipeDatum['calories_kcal']);
-            $oRecipe->setProteinGrams($recipeDatum['protein_grams']);
-            $oRecipe->setFatGrams($recipeDatum['fat_grams']);
-            $oRecipe->setCarbsGrams($recipeDatum['carbs_grams']);
-            $oRecipe->setBulletpoint1($recipeDatum['bulletpoint1']);
-            $oRecipe->setBulletpoint2($recipeDatum['bulletpoint2']);
-            $oRecipe->setBulletpoint3($recipeDatum['bulletpoint3']);
-            $oRecipe->setRecipeDietTypeId($recipeDatum['recipe_diet_type_id']);
-            $oRecipe->setSeason($recipeDatum['season']);
-            $oRecipe->setBase($recipeDatum['base']);
-            $oRecipe->setProteinSource($recipeDatum['protein_source']);
-            $oRecipe->setPreparationTimeMinutes($recipeDatum['preparation_time_minutes']);
-            $oRecipe->setShelfLifeDays($recipeDatum['shelf_life_days']);
-            $oRecipe->setEquipmentNeeded($recipeDatum['equipment_needed']);
-            $oRecipe->setOriginCountry($recipeDatum['origin_country']);
-            $oRecipe->setRecipeCuisine($recipeDatum['recipe_cuisine']);
-            $oRecipe->setInYourBox($recipeDatum['in_your_box']);
-            $oRecipe->setGoustoReference($recipeDatum['gousto_reference']);
+            $oRecipe->setAllRecipeFieldsFromArray($recipeDatum);
             $this->addRecipe($oRecipe);
         }
     }

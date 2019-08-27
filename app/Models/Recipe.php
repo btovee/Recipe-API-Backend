@@ -557,6 +557,41 @@ class Recipe
         $this->gousto_reference = $gousto_reference;
     }
 
+
+    /**
+     * Sets all fields for Recipe object
+     *
+     * @param array $recipeDatum
+     */
+    public function setAllRecipeFieldsFromArray(array $recipeDatum): void {
+            $this->setId($recipeDatum['id']);
+            $this->setCreatedAt($recipeDatum['created_at']);
+            $this->setUpdatedAt($recipeDatum['updated_at']);
+            $this->setBoxType($recipeDatum['box_type']);
+            $this->setTitle($recipeDatum['title']);
+            $this->setSlug($recipeDatum['slug']);
+            $this->setShortTitle($recipeDatum['short_title']);
+            $this->setMarketingDescription($recipeDatum['marketing_description']);
+            $this->setCaloriesKcal($recipeDatum['calories_kcal']);
+            $this->setProteinGrams($recipeDatum['protein_grams']);
+            $this->setFatGrams($recipeDatum['fat_grams']);
+            $this->setCarbsGrams($recipeDatum['carbs_grams']);
+            $this->setBulletpoint1($recipeDatum['bulletpoint1']);
+            $this->setBulletpoint2($recipeDatum['bulletpoint2']);
+            $this->setBulletpoint3($recipeDatum['bulletpoint3']);
+            $this->setRecipeDietTypeId($recipeDatum['recipe_diet_type_id']);
+            $this->setSeason($recipeDatum['season']);
+            $this->setBase($recipeDatum['base']);
+            $this->setProteinSource($recipeDatum['protein_source']);
+            $this->setPreparationTimeMinutes($recipeDatum['preparation_time_minutes']);
+            $this->setShelfLifeDays($recipeDatum['shelf_life_days']);
+            $this->setEquipmentNeeded($recipeDatum['equipment_needed']);
+            $this->setOriginCountry($recipeDatum['origin_country']);
+            $this->setRecipeCuisine($recipeDatum['recipe_cuisine']);
+            $this->setInYourBox($recipeDatum['in_your_box']);
+            $this->setGoustoReference($recipeDatum['gousto_reference']);
+    }
+
     /**
      * Retrieves the fields id, title and description
      *
